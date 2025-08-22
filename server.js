@@ -36,8 +36,8 @@ app.post('/upload', async (req, res) => {
     await Dato.insertMany(data);
     res.status(200).json({ message: "Datos guardados en MongoDB correctamente" });
   } catch (error) {
-    console.error("Error al guardar:", error);
-    res.status(500).json({ message: "Error al guardar datos" });
+  console.error("❌ Error al guardar:", error);
+  res.status(500).json({ message: error.message, fullError: error });
   }
 });
 
